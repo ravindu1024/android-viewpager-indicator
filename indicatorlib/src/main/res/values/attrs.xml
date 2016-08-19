@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="selectedColor" format="color"/>
+        <attr name="deselectedColor" format="color"/>
+        <attr name="selectedDrawable" format="reference" />
+        <attr name="deselectedDrawable" format="reference"/>
+        <attr name="indicatorSpacing" format="dimension"/>
+    </declare-styleable>
+
+</resources>
