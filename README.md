@@ -4,6 +4,7 @@ A simple customizable indicator for ViewPagers
 Installation:
 
 1) Download the repository
+
 2) In Android Studio, select File->New->Import Module and select the "indicatorlib" directory and import it to your project
 
 Usage:
