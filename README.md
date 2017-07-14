@@ -1,6 +1,10 @@
 # android-viewpager-indicator
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--viewpager--indicator-green.svg?style=true)](https://android-arsenal.com/details/1/4182)
 
+![alt tag](https://raw.githubusercontent.com/ravindu1024/android-viewpager-indicator/master/images/screen1.png)
+![alt tag](https://raw.githubusercontent.com/ravindu1024/android-viewpager-indicator/master/images/screen2.png)
+![alt tag](https://raw.githubusercontent.com/ravindu1024/android-viewpager-indicator/master/images/screen3.png)
+
 A simple customizable indicator for ViewPagers
 
 Installation:
