@@ -22,7 +22,7 @@ Installation:
 2) Add this to the module gradle file:
 ```gradle
 	dependencies {
-	        compile 'com.github.ravindu1024:android-viewpager-indicator:1.0.0'
+	        compile 'com.github.ravindu1024:android-viewpager-indicator:1.0.1'
 	}
 
 ```
