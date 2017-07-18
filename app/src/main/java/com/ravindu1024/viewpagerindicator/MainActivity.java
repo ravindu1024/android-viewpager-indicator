@@ -29,13 +29,15 @@ public class MainActivity extends AppCompatActivity
 
         indicator.setPager(pager);
 
-        list.add("page 3");
 
+
+        list.add("page 3");
+//
         adapter.notifyDataSetChanged();
 
         //indicator.setPager(pager);
 
-        pager.setCurrentItem(1);
+        pager.setCurrentItem(2);
 
     }
 }

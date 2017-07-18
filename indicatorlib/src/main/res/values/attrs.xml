@@ -6,6 +6,9 @@
         <attr name="selectedDrawable" format="reference" />
         <attr name="deselectedDrawable" format="reference"/>
         <attr name="indicatorSpacing" format="dimension"/>
+        <attr name="enableAnimation" format="boolean"/>
+        <attr name="animationDuration" format="integer"/>
+        <attr name="animationScale" format="float"/>
     </declare-styleable>
 
 </resources>

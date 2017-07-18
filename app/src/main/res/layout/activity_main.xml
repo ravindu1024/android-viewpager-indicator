@@ -17,8 +17,11 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
         android:id="@+id/pager_indicator"
-        app:selectedDrawable="@android:drawable/button_onoff_indicator_on"
-        app:deselectedDrawable="@android:drawable/button_onoff_indicator_off"
+        app:selectedDrawable="@android:drawable/presence_online"
+        app:deselectedDrawable="@android:drawable/presence_invisible"
+        app:animationDuration="100"
+        app:animationScale="1.4"
+        app:enableAnimation="true"
         android:layout_alignParentBottom="true"/>
 
     <android.support.v4.view.ViewPager

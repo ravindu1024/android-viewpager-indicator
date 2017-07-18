@@ -35,6 +35,9 @@ public class ViewPagerIndicator extends LinearLayout implements ViewPager.OnPage
     @DrawableRes private int mSelectedDrawable = -1;
     @DrawableRes private int mDeselectedDrawable = -1;
     @Dimension private int mIndicatorSpacing = 5;
+    private int mAnimationDuration = 150;
+    private float mAnimScaleMultiplier = 1.5f;
+    private boolean mAnimate = false;
 
     /**
      * Set this after setting the adapter to the pager.
@@ -91,6 +94,9 @@ public class ViewPagerIndicator extends LinearLayout implements ViewPager.OnPage
             mSelectedDrawable = a.getResourceId(R.styleable.ViewPagerIndicator_selectedDrawable, -1);
             mDeselectedDrawable = a.getResourceId(R.styleable.ViewPagerIndicator_deselectedDrawable, -1);
             mIndicatorSpacing = (int) a.getDimension(R.styleable.ViewPagerIndicator_indicatorSpacing, 5);
+            mAnimate = a.getBoolean(R.styleable.ViewPagerIndicator_enableAnimation, false);
+            mAnimationDuration = a.getInteger(R.styleable.ViewPagerIndicator_animationDuration, 150);
+            mAnimScaleMultiplier = a.getFloat(R.styleable.ViewPagerIndicator_animationScale, 1.5f);
 
             a.recycle();
         }
@@ -112,6 +118,7 @@ public class ViewPagerIndicator extends LinearLayout implements ViewPager.OnPage
         for(int i = 0; i < num; i++)
         {
             ImageView img = new ImageView(mContext);
+            img.setTag(i);
 
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(mIndicatorSpacing/2, 0, mIndicatorSpacing/2, 0);
@@ -129,6 +136,18 @@ public class ViewPagerIndicator extends LinearLayout implements ViewPager.OnPage
         for(int i = 0; i < num; i++)
         {
             ImageView img = (ImageView) getChildAt(i);
+
+            if(mAnimate)
+            {
+                img.clearAnimation();
+
+                img.animate()
+                        .scaleX(1)
+                        .scaleY(1)
+                        .setDuration(mAnimationDuration)
+                        .start();
+            }
+
 
             img.clearColorFilter();
 
@@ -149,6 +168,15 @@ public class ViewPagerIndicator extends LinearLayout implements ViewPager.OnPage
         }
 
         ImageView selectedView = (ImageView) getChildAt(selected);
+
+        if(mAnimate)
+        {
+            selectedView.animate()
+                    .scaleX(mAnimScaleMultiplier)
+                    .scaleY(mAnimScaleMultiplier)
+                    .setDuration(mAnimationDuration)
+                    .start();
+        }
 
         if(mSelectedDrawable != -1)
         {
