@@ -9,9 +9,23 @@ A simple customizable indicator for ViewPagers
 
 Installation:
 
-1) Download the repository
+1) Add the following to the main project gradle file:
+```gradle
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
 
-2) In Android Studio, select File->New->Import Module and select the "indicatorlib" directory and import it to your project
+2) Add this to the module gradle file:
+```gradle
+	dependencies {
+	        compile 'com.github.ravindu1024:android-viewpager-indicator:1.0.0'
+	}
+
+```
 
 Usage:
 
