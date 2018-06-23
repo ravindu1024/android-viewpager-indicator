@@ -9,6 +9,7 @@
         <attr name="enableAnimation" format="boolean"/>
         <attr name="animationDuration" format="integer"/>
         <attr name="animationScale" format="float"/>
+        <attr name="backgroundColor" format="color"/>
     </declare-styleable>
 
 </resources>
