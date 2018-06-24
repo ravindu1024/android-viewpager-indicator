@@ -134,48 +134,53 @@ class ViewPagerIndicator : LinearLayout, ViewPager.OnPageChangeListener, ViewPag
         val num = childCount
 
         for (i in 0 until num) {
-            val img = getChildAt(i) as ImageView
+            val img = getChildAt(i) as ImageView?
 
+            img?.let {
+                if (mAnimate) {
+                    img.clearAnimation()
+
+                    img.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(mAnimationDuration.toLong())
+                            .start()
+                }
+
+
+                img.clearColorFilter()
+
+                if (mDeselectedDrawable != -1) {
+                    img.setImageResource(mDeselectedDrawable)
+                } else if (mSelectedDrawable != -1) {
+                    img.setImageResource(mSelectedDrawable)
+                    img.colorFilter = LightingColorFilter(0, mDeselectedColor)
+                } else {
+                    img.setImageResource(R.drawable.circle_drawable)
+                    img.colorFilter = LightingColorFilter(0, mDeselectedColor)
+                }
+            }
+        }
+
+        val selectedView = getChildAt(selected) as ImageView?
+        selectedView?.let {
             if (mAnimate) {
-                img.clearAnimation()
-
-                img.animate()
-                        .scaleX(1f)
-                        .scaleY(1f)
+                selectedView.animate()
+                        .scaleX(mAnimScaleMultiplier)
+                        .scaleY(mAnimScaleMultiplier)
                         .setDuration(mAnimationDuration.toLong())
                         .start()
             }
 
-
-            img.clearColorFilter()
-
-            if (mDeselectedDrawable != -1) {
-                img.setImageResource(mDeselectedDrawable)
-            } else if (mSelectedDrawable != -1) {
-                img.setImageResource(mSelectedDrawable)
-                img.colorFilter = LightingColorFilter(0, mDeselectedColor)
+            if (mSelectedDrawable != -1) {
+                selectedView.clearColorFilter()
+                selectedView.setImageResource(mSelectedDrawable)
             } else {
-                img.setImageResource(R.drawable.circle_drawable)
-                img.colorFilter = LightingColorFilter(0, mDeselectedColor)
+                selectedView.colorFilter = LightingColorFilter(0, mSelectedColor)
             }
         }
 
-        val selectedView = getChildAt(selected) as ImageView
 
-        if (mAnimate) {
-            selectedView.animate()
-                    .scaleX(mAnimScaleMultiplier)
-                    .scaleY(mAnimScaleMultiplier)
-                    .setDuration(mAnimationDuration.toLong())
-                    .start()
-        }
-
-        if (mSelectedDrawable != -1) {
-            selectedView.clearColorFilter()
-            selectedView.setImageResource(mSelectedDrawable)
-        } else {
-            selectedView.colorFilter = LightingColorFilter(0, mSelectedColor)
-        }
     }
 
 
