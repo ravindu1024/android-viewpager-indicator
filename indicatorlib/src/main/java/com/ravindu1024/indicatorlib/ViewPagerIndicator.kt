@@ -59,6 +59,7 @@ class ViewPagerIndicator : LinearLayout, ViewPager.OnPageChangeListener, ViewPag
         mPager?.let{
             it.removeOnPageChangeListener(this@ViewPagerIndicator)
             it.removeOnAdapterChangeListener(this@ViewPagerIndicator)
+            it.adapter?.unregisterDataSetObserver(mDatasetObserver)
         }
 
         mPager = pager
